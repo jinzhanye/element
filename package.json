@@ -1,5 +1,5 @@
 {
-  "name": "element-ui",
+  "name": "element-ui-uwgd",
   "version": "2.4.5",
   "description": "A Component Library for Vue.js.",
   "main": "lib/element-ui.common.js",
@@ -11,6 +11,7 @@
   ],
   "typings": "types/index.d.ts",
   "scripts": {
+    "start": "yarn run dev",
     "bootstrap": "yarn || npm i",
     "build:file": "node build/bin/iconInit.js & node build/bin/build-entry.js & node build/bin/i18n.js & node build/bin/version.js",
     "build:theme": "node build/bin/gen-cssfile && gulp build --gulpfile packages/theme-chalk/gulpfile.js && cp-cli packages/theme-chalk/lib lib/theme-chalk",

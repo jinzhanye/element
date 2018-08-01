@@ -80,6 +80,7 @@
       :disabled="selectDisabled"
       :readonly="readonly"
       :validate-event="false"
+      :border-width="borderWidth"
       :class="{ 'is-focus': visible }"
       @focus="handleFocus"
       @blur="handleBlur"
@@ -96,6 +97,7 @@
         <slot name="prefix"></slot>
       </template>
       <i slot="suffix"
+         v-if="showIcon"
        :class="['el-select__caret', 'el-input__icon', 'el-icon-' + iconClass]"
        @click="handleIconClick"
       ></i>
@@ -299,6 +301,14 @@
       popperAppendToBody: {
         type: Boolean,
         default: true
+      },
+      showIcon: {
+        type: Boolean,
+        default: true
+      },
+      borderWidth: {
+        type: Number,
+        default: 1
       }
     },
 

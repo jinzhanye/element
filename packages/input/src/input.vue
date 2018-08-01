@@ -22,6 +22,7 @@
       <input
         :tabindex="tabindex"
         v-if="type !== 'textarea'"
+        :style="{borderWidth : borderWidth + 'px'}"
         class="el-input__inner"
         v-bind="$attrs"
         :type="type"
@@ -164,7 +165,11 @@
         type: Boolean,
         default: false
       },
-      tabindex: String
+      tabindex: String,
+      borderWidth: {
+        type: Number,
+        default: 1
+      }
     },
 
     computed: {
