@@ -162,10 +162,10 @@
     extractDateFormat,
     extractTimeFormat
   } from '../util';
-  import Clickoutside from 'element-ui/src/utils/clickoutside';
-  import Locale from 'element-ui/src/mixins/locale';
-  import ElInput from 'element-ui/packages/input';
-  import ElButton from 'element-ui/packages/button';
+  import Clickoutside from 'element-ui-uwgd/src/utils/clickoutside';
+  import Locale from 'element-ui-uwgd/src/mixins/locale';
+  import ElInput from 'element-ui-uwgd/packages/input';
+  import ElButton from 'element-ui-uwgd/packages/button';
   import TimePicker from './time';
   import YearTable from '../basic/year-table';
   import MonthTable from '../basic/month-table';
