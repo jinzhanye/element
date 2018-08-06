@@ -307,7 +307,7 @@
         default: true
       },
       borderWidth: {
-        type: Number,
+        type: [Number, String],
         default: 1
       }
     },

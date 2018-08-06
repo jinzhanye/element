@@ -167,7 +167,7 @@
       },
       tabindex: String,
       borderWidth: {
-        type: Number,
+        type: [Number, String],
         default: 1
       }
     },
