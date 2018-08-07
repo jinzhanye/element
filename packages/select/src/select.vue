@@ -130,6 +130,9 @@
             (!allowCreate || loading || (allowCreate && options.length === 0 ))">
           {{ emptyText }}
         </p>
+
+        <slot name="option-suffix"></slot>
+
       </el-select-menu>
     </transition>
   </div>

@@ -181,6 +181,57 @@
 ```
 :::
 
+### 添加 option-suffix
+
+:::demo 使用 `slot=option-suffix` 在下拉框尾部添加自定义内容
+```html
+<template>
+  <el-select v-model="value" placeholder="请选择">
+    <div slot="option-suffix" 
+         style="height: 50px;
+                line-height: 50px;
+                background: #3a8ee6;
+                color:#fff;
+                text-align: center;">
+        Do something
+    </div>
+    <el-option
+      v-for="item in options"
+      :key="item.value"
+      :label="item.label"
+      :value="item.value">
+    </el-option>
+  </el-select>
+</template>
+
+<script>
+  export default {
+    data() {
+      return {
+        options: [{
+          value: '选项1',
+          label: '黄金糕'
+        }, {
+          value: '选项2',
+          label: '双皮奶'
+        }, {
+          value: '选项3',
+          label: '蚵仔煎'
+        }, {
+          value: '选项4',
+          label: '龙须面'
+        }, {
+          value: '选项5',
+          label: '北京烤鸭'
+        }],
+        value: ''
+      }
+    }
+  }
+</script>
+```
+:::
+
 ### 有禁用选项
 
 :::demo 在`el-option`中，设定`disabled`值为 true，即可禁用该选项
