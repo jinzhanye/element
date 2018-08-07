@@ -108,6 +108,7 @@
       @after-leave="doDestroy">
       <el-select-menu
         ref="popper"
+        :visible-arrow="visibleArrow"
         :append-to-body="popperAppendToBody"
         v-show="visible && emptyText !== false">
         <el-scrollbar
@@ -312,6 +313,10 @@
       borderWidth: {
         type: [Number, String],
         default: 1
+      },
+      visibleArrow: {
+        type: Boolean,
+        default: true
       }
     },
 
