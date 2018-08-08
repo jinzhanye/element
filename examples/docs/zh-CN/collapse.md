@@ -153,3 +153,4 @@
 |---------- |-------------- |---------- |--------------------------------  |-------- |
 | name | 唯一标志符 | string/number | — | — |
 | title | 面板标题 | string | — | — |
+| arrow-model | 箭头图标旋转方式 | string | right/down/double | right |

@@ -28,6 +28,26 @@
         transform: rotate(90deg);
       }
     }
+    @include e(arrow-left) {
+      margin-right: 8px;
+      transition: transform .3s;
+      float: left;
+      line-height: 48px;
+      font-weight: 300;
+      @include when(active) {
+        transform: rotate(-180deg);
+      }
+    }
+    @include e(arrow-right) {
+      margin-right: 8px;
+      transition: transform .3s;
+      float: right;
+      line-height: 48px;
+      font-weight: 300;
+      @include when(active) {
+        transform: rotate(180deg);
+      }
+    }
     &.focusing:focus:not(:hover){
       color: $--color-primary;
     }

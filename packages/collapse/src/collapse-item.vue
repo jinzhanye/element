@@ -21,8 +21,14 @@
         @blur="focusing = false"
       >
         <i
-          class="el-collapse-item__arrow el-icon-arrow-right"
+          v-if="arrowModel === 'double'"
+          class="el-collapse-item__arrow-left el-icon-arrow-down"
           :class="{'is-active': isActive}">
+        </i>
+        <i
+          :class="[isActive ? 'is-active' : '',
+                  arrowPositionClass,
+                  arrowDirectionClass]">
         </i>
         <slot name="title">{{title}}</slot>
       </div>
@@ -47,6 +53,12 @@
   import ElCollapseTransition from 'element-ui-uwgd/src/transitions/collapse-transition';
   import Emitter from 'element-ui-uwgd/src/mixins/emitter';
   import { generateId } from 'element-ui-uwgd/src/utils/util';
+
+  const arrowModelEnum = {
+    DOUBLE: 'double',
+    DOWN: 'down',
+    RIGHT: 'right'
+  };
 
   export default {
     name: 'ElCollapseItem',
@@ -78,6 +90,10 @@
         default() {
           return this._uid;
         }
+      },
+      arrowModel: {
+        type: String,
+        default: arrowModelEnum.RIGHT
       }
     },
 
@@ -87,10 +103,20 @@
       },
       id() {
         return generateId();
+      },
+      arrowPositionClass() {
+        return this.isShowDefaultArrowClass() ? 'el-collapse-item__arrow' : 'el-collapse-item__arrow-right';
+      },
+      arrowDirectionClass() {
+        return this.isShowDefaultArrowClass() ? 'el-icon-arrow-right' : 'el-icon-arrow-down';
       }
     },
 
     methods: {
+      isShowDefaultArrowClass() {
+        return this.arrowModel === arrowModelEnum.RIGHT;
+      },
+
       handleFocus() {
         setTimeout(() => {
           if (!this.isClick) {
