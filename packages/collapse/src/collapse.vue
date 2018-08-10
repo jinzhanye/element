@@ -16,6 +16,10 @@
         default() {
           return [];
         }
+      },
+      arrowModel: {
+        type: String,
+        default: 'right'
       }
     },
 

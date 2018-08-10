@@ -142,6 +142,7 @@
 |---------- |-------------- |---------- |--------------------------------  |-------- |
 | accordion | 是否手风琴模式 | boolean | — | false |
 | value | 当前激活的面板(如果是手风琴模式，绑定值类型需要为`string`，否则为`array`) | string/array | — | — |
+| arrow-model | 箭头图标旋转方式 | string | right/down/double | right |
 
 ### Collapse Events
 | 事件名称 | 说明 | 回调参数 |
@@ -153,4 +154,3 @@
 |---------- |-------------- |---------- |--------------------------------  |-------- |
 | name | 唯一标志符 | string/number | — | — |
 | title | 面板标题 | string | — | — |
-| arrow-model | 箭头图标旋转方式 | string | right/down/double | right |

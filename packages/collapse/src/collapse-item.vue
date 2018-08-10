@@ -90,10 +90,6 @@
         default() {
           return this._uid;
         }
-      },
-      arrowModel: {
-        type: String,
-        default: arrowModelEnum.RIGHT
       }
     },
 
@@ -103,6 +99,9 @@
       },
       id() {
         return generateId();
+      },
+      arrowModel() {
+        return this.$parent.arrowModel;
       },
       arrowPositionClass() {
         return this.isShowDefaultArrowClass() ? 'el-collapse-item__arrow' : 'el-collapse-item__arrow-right';
