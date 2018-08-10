@@ -20,7 +20,11 @@
         default: 'top'
       },
       beforeLeave: Function,
-      stretch: Boolean
+      stretch: Boolean,
+      activeBarStretch: {
+        type: Boolean,
+        default: false
+      }
     },
 
     provide() {

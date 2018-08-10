@@ -205,6 +205,8 @@
           <span class={['el-tabs__nav-next', scrollable.next ? '' : 'is-disabled']} on-click={scrollNext}><i class="el-icon-arrow-right"></i></span>
         ] : null;
 
+      const padding = ['top', 'bottom'].indexOf(this.rootTabs.tabPosition) !== -1 &&
+                                      this.rootTabs.activeBarStretch ? '0px' : '';
       const tabs = this._l(panes, (pane, index) => {
         let tabName = pane.name || pane.index || index;
         const closable = pane.isClosable || editable;
@@ -219,6 +221,7 @@
         const tabindex = pane.active ? 0 : -1;
         return (
           <div
+            style={{padding}}
             class={{
               'el-tabs__item': true,
               [`is-${ this.rootTabs.tabPosition }`]: true,

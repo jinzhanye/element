@@ -19,6 +19,7 @@
           let style = {};
           let offset = 0;
           let tabSize = 0;
+          const activeBarStretch = this.rootTabs.activeBarStretch;
           const sizeName = ['top', 'bottom'].indexOf(this.rootTabs.tabPosition) !== -1 ? 'width' : 'height';
           const sizeDir = sizeName === 'width' ? 'x' : 'y';
           const firstUpperCase = str => {
@@ -33,14 +34,14 @@
               return true;
             } else {
               tabSize = $el[`client${firstUpperCase(sizeName)}`];
-              if (sizeName === 'width' && this.tabs.length > 1) {
+              if (sizeName === 'width' && this.tabs.length > 1 && !activeBarStretch) {
                 tabSize -= (index === 0 || index === this.tabs.length - 1) ? 20 : 40;
               }
               return false;
             }
           });
 
-          if (sizeName === 'width' && offset !== 0) {
+          if (sizeName === 'width' && offset !== 0 && !activeBarStretch) {
             offset += 20;
           }
           const transform = `translate${firstUpperCase(sizeDir)}(${offset}px)`;

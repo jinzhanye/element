@@ -126,6 +126,38 @@
 ```
 :::
 
+### 展开模式
+
+另一种样式风格
+
+:::demo 
+
+```html
+<template>
+  <el-tabs v-model="activeName" @tab-click="handleClick" :stretch="true" :active-bar-stretch="true">
+    <el-tab-pane label="用户管理" name="first">用户管理</el-tab-pane>
+    <el-tab-pane label="配置管理" name="second">配置管理</el-tab-pane>
+    <el-tab-pane label="角色管理" name="third">角色管理</el-tab-pane>
+    <el-tab-pane label="定时任务补偿" name="fourth">定时任务补偿</el-tab-pane>
+  </el-tabs>
+</template>
+<script>
+  export default {
+    data() {
+      return {
+        activeName: 'second'
+      };
+    },
+    methods: {
+      handleClick(tab, event) {
+        console.log(tab, event);
+      }
+    }
+  };
+</script>
+```
+:::
+
 ### 选项卡样式
 
 选项卡样式的标签页。
@@ -375,6 +407,7 @@
 | value  | 绑定值，选中选项卡的 name  | string   |  —  |  第一个选项卡的 name |
 | tab-position  | 选项卡所在位置 | string   |  top/right/bottom/left  |  top |
 | stretch  | 标签的宽度是否自撑开 | boolean   |  -  |  false |
+| active-bar-stretch | 当 tab-position 为 top/bottom 时，活跃滑块宽度是否占满活跃项。必须配合 stretch 一起使用 | boolean | - | false
 | before-leave | 切换标签之前的钩子，若返回 false 或者返回 Promise 且被 reject，则阻止切换。 | Function(activeName, oldActiveName) | — | — |
 
 ### Tabs Events
