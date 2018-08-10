@@ -317,6 +317,10 @@
       visibleArrow: {
         type: Boolean,
         default: true
+      },
+      autoOpen: {
+        type: Boolean,
+        default: false
       }
     },
 
@@ -332,7 +336,7 @@
         cachedPlaceHolder: '',
         optionsCount: 0,
         filteredOptionsCount: 0,
-        visible: false,
+        visible: this.autoOpen,
         softFocus: false,
         selectedLabel: '',
         hoverIndex: -1,
