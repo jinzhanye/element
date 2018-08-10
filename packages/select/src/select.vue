@@ -318,7 +318,7 @@
         type: Boolean,
         default: true
       },
-      autoOpen: {
+      fixed: {
         type: Boolean,
         default: false
       }
@@ -336,7 +336,7 @@
         cachedPlaceHolder: '',
         optionsCount: 0,
         filteredOptionsCount: 0,
-        visible: this.autoOpen,
+        visible: this.fixed,
         softFocus: false,
         selectedLabel: '',
         hoverIndex: -1,
@@ -598,7 +598,9 @@
       },
 
       blur() {
-        this.visible = false;
+        if (!this.fixed) {
+          this.visible = false;
+        }
         this.$refs.reference.blur();
       },
 
@@ -624,7 +626,9 @@
       },
 
       handleClose() {
-        this.visible = false;
+        if (!this.fixed) {
+          this.visible = false;
+        }
       },
 
       toggleLastOptionHitState(hit) {
@@ -716,7 +720,10 @@
         } else {
           this.$emit('input', option.value);
           this.emitChange(option.value);
-          this.visible = false;
+
+          if (!this.fixed) {
+            this.visible = false;
+          }
         }
         this.isSilentBlur = byClick;
         this.setSoftFocus();
@@ -757,7 +764,9 @@
           if (this.menuVisibleOnFocus) {
             this.menuVisibleOnFocus = false;
           } else {
-            this.visible = !this.visible;
+            if (!this.fixed) {
+              this.visible = !this.visible;
+            }
           }
           if (this.visible) {
             (this.$refs.input || this.$refs.reference).focus();
@@ -779,7 +788,9 @@
         event.stopPropagation();
         this.$emit('input', '');
         this.emitChange('');
-        this.visible = false;
+        if (!this.fixed) {
+          this.visible = false;
+        }
         this.$emit('clear');
       },
 

@@ -102,6 +102,7 @@
         value9: '',
         value10: [],
         value11: [],
+        value12: '',
         loading: false,
         states: ["Alabama", "Alaska", "Arizona", "Arkansas", "California", "Colorado", "Connecticut", "Delaware", "Florida", "Georgia", "Hawaii", "Idaho", "Illinois", "Indiana", "Iowa", "Kansas", "Kentucky", "Louisiana", "Maine", "Maryland", "Massachusetts", "Michigan", "Minnesota", "Mississippi", "Missouri", "Montana", "Nebraska", "Nevada", "New Hampshire", "New Jersey", "New Mexico", "New York", "North Carolina", "North Dakota", "Ohio", "Oklahoma", "Oregon", "Pennsylvania", "Rhode Island", "South Carolina", "South Dakota", "Tennessee", "Texas", "Utah", "Vermont", "Virginia", "Washington", "West Virginia", "Wisconsin", "Wyoming"]
       };
@@ -186,7 +187,7 @@
 :::demo 使用 `slot=option-suffix` 在下拉框尾部添加自定义内容
 ```html
 <template>
-  <el-select v-model="value" placeholder="请选择">
+  <el-select v-model="value12" placeholder="请选择">
     <div slot="option-suffix" 
          style="height: 50px;
                 line-height: 50px;
@@ -224,7 +225,7 @@
           value: '选项5',
           label: '北京烤鸭'
         }],
-        value: ''
+        value12: ''
       }
     }
   }
@@ -733,7 +734,7 @@
 | popper-append-to-body | 是否将弹出框插入至 body 元素。在弹出框的定位出现问题时，可将该属性设置为 false | boolean | - | true |
 | automatic-dropdown | 对于不可搜索的 Select，是否在输入框获得焦点后自动弹出选项菜单 | boolean | - | false |
 | visible-arrow | 下拉框是否显示箭头 | boolean | - | true |
-| auto-open | 自动显示下拉框 | boolean | - | false |
+| fixed | 关闭显示/隐藏下拉框效果 | boolean | - | false |
 
 ### Select Events
 | 事件名称 | 说明 | 回调参数 |

@@ -9,6 +9,7 @@
   "plugins": ["html", "json"],
   "extends": "elemefe",
   "rules": {
+    "no-debugger": "off",
     "no-restricted-globals": ["error", "event", "fdescribe"]
   },
   "parserOptions": {
