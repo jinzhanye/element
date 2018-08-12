@@ -75,6 +75,8 @@
   }
 }
 
+/* 判断是否添加 $selector 作用域
+ -------------------------- */
 @mixin e($element) {
   $E: $element !global;
   $selector: &;
@@ -100,6 +102,8 @@
   }
 }
 
+/* 追加修饰
+ -------------------------- */
 @mixin m($modifier) {
   $selector: &;
   $currentSelector: "";

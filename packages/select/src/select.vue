@@ -591,6 +591,9 @@
             this.visible = true;
             this.menuVisibleOnFocus = true;
           }
+          if (this.fixed) {
+            this.broadcast('ElInput', 'inputSelect');
+          }
           this.$emit('focus', event);
         } else {
           this.softFocus = false;
