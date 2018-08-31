@@ -23,8 +23,9 @@
     @drop.stop="handleDrop"
     ref="node"
   >
+    <span class="el-tree-node__index" v-if="showIndex" >{{ node.index + 1 }}</span>
     <div class="el-tree-node__content"
-      :style="{ 'padding-left': (node.level - 1) * tree.indent + 'px' }">
+      :style="paddingLeft">
       <span
         class="el-tree-node__expand-icon el-icon-caret-right"
         @click.stop="handleExpandIconClick"
@@ -93,6 +94,16 @@
       }
     },
 
+    computed:{
+      paddingLeft(){
+          let indent = (this.node.level - 1) * this.tree.indent + this.tree.baseIndent;
+          if(this.showIndex){
+              indent += 24;
+          }
+          return { 'padding-left': indent + 'px' };
+      }
+    },
+
     components: {
       ElCollapseTransition,
       ElCheckbox,
@@ -124,6 +135,7 @@
         expanded: false,
         childNodeRendered: false,
         showCheckbox: false,
+        showIndex: false,
         oldChecked: null,
         oldIndeterminate: null
       };
@@ -255,6 +267,11 @@
       });
 
       this.showCheckbox = tree.showCheckbox;
+      this.showIndex = tree.showIndex;
+
+      if(this.showIndex){
+        this.node.setIndex();
+      }
 
       if (this.node.expanded) {
         this.expanded = true;
@@ -268,6 +285,6 @@
           }
         });
       }
-    }
+    },
   };
 </script>

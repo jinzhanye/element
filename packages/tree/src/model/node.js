@@ -1,5 +1,5 @@
 import objectAssign from 'element-ui-uwgd/src/utils/merge';
-import { markNodeData, NODE_KEY } from './util';
+import { markNodeData, NODE_KEY, traverse } from './util';
 
 export const getChildState = node => {
   let all = true;
@@ -80,6 +80,7 @@ export default class Node {
 
     // internal
     this.level = 0;
+    this.index = 0;
     this.loaded = false;
     this.childNodes = [];
     this.loading = false;
@@ -476,5 +477,18 @@ export default class Node {
         callback.call(this);
       }
     }
+  }
+
+  getFlattenData() {
+    const arr = [];
+    traverse(this.store.root, node => {
+      arr.push(node.data);
+    });
+
+    return arr;
+  };
+
+  setIndex() {
+    this.index = this.getFlattenData().findIndex(tempData => tempData === this.data);
   }
 }

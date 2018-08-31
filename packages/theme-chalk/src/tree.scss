@@ -101,6 +101,13 @@
     font-size: $--font-size-base;
   }
 
+
+  @include e(index) {
+    position: absolute;
+    left: 8px;
+    font-size: $--font-size-base;
+    padding: 4.5px 0;
+  }
   @include e(loading-icon) {
     margin-right: 8px;
     font-size: $--font-size-base;

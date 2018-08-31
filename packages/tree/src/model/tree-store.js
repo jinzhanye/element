@@ -1,5 +1,5 @@
 import Node from './node';
-import { getNodeKey } from './util';
+import { getNodeKey, traverse } from './util';
 
 export default class TreeStore {
   constructor(options) {
@@ -331,5 +331,11 @@ export default class TreeStore {
     if (node) {
       this.currentNode = node;
     }
+  }
+
+  resetNodeIndex() {
+    traverse(this.root, node => {
+      node.setIndex();
+    });
   }
 };

@@ -784,6 +784,62 @@
 ```
 :::
 
+### 显示索引
+
+:::demo
+```html
+<el-tree :data="data" :props="defaultProps" show-index></el-tree>
+
+<script>
+  export default {
+    data() {
+      return {
+        data: [{
+          label: '一级 1',
+          children: [{
+            label: '二级 1-1',
+            children: [{
+              label: '三级 1-1-1'
+            }]
+          }]
+        }, {
+          label: '一级 2',
+          children: [{
+            label: '二级 2-1',
+            children: [{
+              label: '三级 2-1-1'
+            }]
+          }, {
+            label: '二级 2-2',
+            children: [{
+              label: '三级 2-2-1'
+            }]
+          }]
+        }, {
+          label: '一级 3',
+          children: [{
+            label: '二级 3-1',
+            children: [{
+              label: '三级 3-1-1'
+            }]
+          }, {
+            label: '二级 3-2',
+            children: [{
+              label: '三级 3-2-1'
+            }]
+          }]
+        }],
+        defaultProps: {
+          children: 'children',
+          label: 'label'
+        }
+      };
+    },
+  };
+</script>
+```
+:::
+
 ### 自定义节点内容
 节点的内容支持自定义，可以在节点区添加按钮或图标等内容
 
@@ -1198,11 +1254,13 @@
 | auto-expand-parent    | 展开子节点的时候是否自动展开父节点                 | boolean                     | —    | true  |
 | default-expanded-keys | 默认展开的节点的 key 的数组                        | array                       | —    | —     |
 | show-checkbox         | 节点是否可被选择                                   | boolean                     | —    | false |
+| show-index            | 节点是否显示索引                                   | boolean                     | —    | false |
 | check-strictly        | 在显示复选框的情况下，是否严格的遵循父子不互相关联的做法，默认为 false   | boolean                     | —    | false |
 | default-checked-keys  | 默认勾选的节点的 key 的数组                        | array                       | —    | —     |
 | filter-node-method    | 对树节点进行筛选时执行的方法，返回 true 表示这个节点可以显示，返回 false 则表示这个节点会被隐藏 | Function(value, data, node) | —    | —     |
 | accordion             | 是否每次只打开一个同级树节点展开                   | boolean                     | —    | false |
-| indent                | 相邻级节点间的水平缩进，单位为像素                 | number                     | —    | 16 |
+| indent                | 相邻级节点间的水平缩进，单位为像素                 | number                     | —    | 18 |
+| base-indent           | 整体缩进，单位为像素                 | number                     | —    | 0 |
 | lazy                  | 是否懒加载子节点，需与 load 方法结合使用           | boolean                     | —    | false |
 | draggable             | 是否开启拖拽节点功能                                   | boolean            | —    | false |
 | allow-drag            | 判断节点能否被拖拽                  | Function(node)  | —  | —  |

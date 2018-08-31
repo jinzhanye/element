@@ -25,3 +25,11 @@ export const findNearestComponent = (element, componentName) => {
   }
   return null;
 };
+
+export const traverse = (root, cb)=> {
+  function iterator(node) {
+    cb(node);
+    node.childNodes.forEach(iterator);
+  }
+  root.childNodes.forEach(iterator);
+};

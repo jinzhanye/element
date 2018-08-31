@@ -99,6 +99,10 @@
         type: Boolean,
         default: false
       },
+      showIndex: {
+        type: Boolean,
+        default: false
+      },
       draggable: {
         type: Boolean,
         default: false
@@ -126,6 +130,10 @@
       indent: {
         type: Number,
         default: 18
+      },
+      baseIndent: {
+        type: Number,
+        default: 0
       }
     },
 
@@ -467,6 +475,10 @@
         }
         if (draggingNode && !dropNode) {
           this.$emit('node-drag-end', draggingNode.node, null, dropType, event);
+        }
+
+        if (this.showIndex) {
+          this.store.resetNodeIndex();
         }
 
         dragState.showDropIndicator = false;
