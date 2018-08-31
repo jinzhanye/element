@@ -1,5 +1,7 @@
 # Update Log
 
+## 2018-08-31
+- 修复 message-box 回车不阻止事件传播 BUG
 
 ## 2018-08-30
 - ElTree 添加 `base-indent`、`show-index` 属性
