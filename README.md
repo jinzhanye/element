@@ -1,5 +1,8 @@
 # Update Log
 
+## 2018-10-11
+- select 组件添加 `popper-prevent-overflow` 属性
+
 ## 2018-08-31
 - 修复 message-box 回车不阻止事件传播 BUG
 

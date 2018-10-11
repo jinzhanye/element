@@ -35,12 +35,18 @@
       },
 
       visibleArrow: {
+        type: Boolean,
         default: true
       },
 
       appendToBody: {
         type: Boolean,
         default: true
+      },
+
+      preventOverflow: {
+        type: Boolean,
+        default: false
       }
     },
 
@@ -66,7 +72,7 @@
       this.referenceElm = this.$parent.$refs.reference.$el;
       this.$parent.popperElm = this.popperElm = this.$el;
       this.$on('updatePopper', () => {
-        if (this.$parent.visible) this.updatePopper();
+        if (this.$parent.visible) this.updatePopper(this.preventOverflow);
       });
       this.$on('destroyPopper', this.destroyPopper);
     }

@@ -79,7 +79,7 @@ export default {
   },
 
   methods: {
-    createPopper() {
+    createPopper(preventOverflow = true) {
       if (this.$isServer) return;
       this.currentPlacement = this.currentPlacement || this.placement;
       if (!/^(top|bottom|left|right)(-start|-end)?$/g.test(this.currentPlacement)) {
@@ -106,6 +106,9 @@ export default {
       options.placement = this.currentPlacement;
       options.offset = this.offset;
       options.arrowOffset = this.arrowOffset;
+      if (!preventOverflow) {
+        options.modifiersIgnored = ['preventOverflow'];
+      }
       this.popperJS = new PopperJS(reference, popper, options);
       this.popperJS.onCreate(_ => {
         this.$emit('created', this);
@@ -119,7 +122,7 @@ export default {
       this.popperElm.addEventListener('click', stop);
     },
 
-    updatePopper() {
+    updatePopper(preventOverflow) {
       const popperJS = this.popperJS;
       if (popperJS) {
         popperJS.update();
@@ -127,7 +130,7 @@ export default {
           popperJS._popper.style.zIndex = PopupManager.nextZIndex();
         }
       } else {
-        this.createPopper();
+        this.createPopper(preventOverflow);
       }
     },
 

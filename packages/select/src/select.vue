@@ -110,6 +110,7 @@
         ref="popper"
         :visible-arrow="visibleArrow"
         :append-to-body="popperAppendToBody"
+        :prevent-overflow="popperPreventOverflow"
         v-show="visible && emptyText !== false">
         <el-scrollbar
           tag="ul"
@@ -303,6 +304,10 @@
       },
       collapseTags: Boolean,
       popperAppendToBody: {
+        type: Boolean,
+        default: true
+      },
+      popperPreventOverflow: {
         type: Boolean,
         default: true
       },
