@@ -5,7 +5,7 @@
 npm install element-ui-uwgd -S
 ````
 
-## Update Log
+## update log
 具体更新属性说明，查阅 element/examples/docs/zh-CN/ 下相应文档
 
 ### 2018-10-11
